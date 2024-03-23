@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="GET" action="">
+    <label for="genre">Выберите жанр:</label>
+    <select name="genre" id="genre">
+        <option value="" {% if not selected_genre %}selected{% endif %}>Все</option>
+        <option value="fantasy" {% if selected_genre == "fantasy" %}selected{% endif %}>Фантастика</option>
+        <option value="adventure" {% if selected_genre == "adventure" %}selected{% endif %}>Приключения</option>
+        <option value="classical" {% if selected_genre == "classical" %}selected{% endif %}>Классика</option>
+        <option value="detective" {% if selected_genre == "detective" %}selected{% endif %}>Детектив</option>
+        <option value="horror" {% if selected_genre == "horror" %}selected{% endif %}>Хоррор</option>
+        <option value="biography" {% if selected_genre == "biography" %}selected{% endif %}>Биография</option>
+        <option value="romance" {% if selected_genre == "romance" %}selected{% endif %}>Роман</option>
+    </select>
+    <button type="submit">Фильтровать</button>
+</form>
+
+{% for book in books %}
+    <h5><a href="{{ book.get_absolute_url }}">{{ book.title }} {{ book.created_at }}</a></h5>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h3>{{ book.title }}</h3>
+    <img src="{{ book.image.url }}" alt="{{ book.title }}">
+    <h6>Genre: {{ book.genre }}</h6>
+
+
+{% endblock %}
